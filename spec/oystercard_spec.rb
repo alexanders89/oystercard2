@@ -5,7 +5,7 @@ describe Oystercard do
   subject(:empty_oystercard) { described_class.new }
   let(:entry_station) { double :entry_station }
   let(:exit_station) { double :exit_station }
-  let(:journey) { { entry_station: entry_station, exit_station: exit_station } }
+  let(:journey) { { entry_station: entry_station, exit_station: exit_station, fare: 2 } }
 
   it 'instance has default value of 0' do
     expect(empty_oystercard.balance).to eq(0)
@@ -18,37 +18,23 @@ describe Oystercard do
   end
 
   it 'raises an error if the maximum balance is exceeded' do
-    maximum_balance = Oystercard::MAXIMUM_BALANCE
-    empty_oystercard.top_up maximum_balance
-    expect { empty_oystercard.top_up 1 }.to raise_error 'Maximum balance exceeded'
+    empty_oystercard.top_up Oystercard::MAXIMUM_BALANCE
+    expect { empty_oystercard.top_up 1 }.to raise_error "Maximum balance of #{Oystercard::MAXIMUM_BALANCE} exceeded"
   end
 
   describe '#touch_in' do
     it 'Allows touch in when sufficient credit present' do
-    expect(oystercard.touch_in(entry_station)).to eq entry_station
+    expect { oystercard.touch_in(entry_station) }.to_not raise_error
     end
     it 'Raises an error when balance below £1' do
-    expect { empty_oystercard.touch_in(entry_station) }.to raise_error 'Top up!'
+    expect { empty_oystercard.touch_in(entry_station) }.to raise_error 'Balance too low : Top up Please'
     end
-    it 'Raises an error when topped up and balance goes below £1' do
-    empty_oystercard.top_up 1
-    empty_oystercard.touch_out(exit_station)
-    expect { empty_oystercard.touch_in(entry_station) }.to raise_error 'Top up!'
-    end
-    it 'Shows us the entry_station last touched in at' do
-    oystercard.touch_in(entry_station)
-    expect(oystercard.entry_station).to eq entry_station
-    end
+
   end
 
   describe '#journeys' do
     it 'shows that a card has an empty list of journeys' do
     expect(oystercard.journeys).to be_empty
-    end
-    it 'shows completed journeys' do
-      oystercard.touch_in(entry_station)
-      oystercard.touch_out(exit_station)
-      expect(oystercard.completed_journeys).to eq([{:entry_station => entry_station, :exit_station => exit_station}])
     end
   end
 end

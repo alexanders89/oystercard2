@@ -22,14 +22,14 @@ class Oystercard
   end
 
   def touch_in(entry_station)
-    rasie 'Balance too low : Top up Please' if @balance < MINIMUM_BALANCE
+    raise 'Balance too low : Top up Please' if @balance < MINIMUM_BALANCE
     in_journey
-    p @journey.start(entry_station)
+    @journey.start(entry_station)
   end
 
   def touch_out(exit_station)
     in_journey
-    p @journey.finish(exit_station)
+    @journey.finish(exit_station)
     @journeys << @journey
     @journey = nil
   end
@@ -41,8 +41,8 @@ class Oystercard
   end
 end
 
-p card = Oystercard.new
-p card.top_up(10)
-p card.touch_in(:A)
-p card.touch_out(:B)
-p card
+# p card = Oystercard.new
+# p card.top_up(10)
+# p card.touch_in(:A)
+# p card.touch_out(:B)
+# p card
