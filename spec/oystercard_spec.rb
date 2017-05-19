@@ -29,12 +29,20 @@ describe Oystercard do
     it 'Raises an error when balance below £1' do
     expect { empty_oystercard.touch_in(entry_station) }.to raise_error 'Balance too low : Top up Please'
     end
-
   end
 
   describe '#journeys' do
     it 'shows that a card has an empty list of journeys' do
     expect(oystercard.journeys).to be_empty
     end
+  end
+
+  describe '#touch_out' do
+    it 'Allows card to be touced out' do
+      oystercard.touch_in(entry_station)
+      oystercard.touch_out(exit_station)
+      expect(oystercard.journeys.last.info[:finish]).to eq exit_station
+    end
+
   end
 end
