@@ -1,10 +1,11 @@
 class Journey
-
   PENALTY_FARE = 6
   MINIMUM_FARE = 2
 
+  attr_reader :journey
+
   def initialize
-    @journey = {start: nil, finish: nil, fare: nil}
+    @journey = { start: nil, finish: nil, fare: nil }
   end
 
   def complete?
@@ -16,17 +17,15 @@ class Journey
   end
 
   def start(entry_station)
-    #fail "You have already touched in" if !@journey[:start].nil?
+    # fail "You have already touched in" if !@journey[:start].nil?
     @journey[:start] = entry_station
     self
   end
 
   def finish(exit_station)
-    #fail "You have already touched out" if !@journey[:finish].nil?
+    # fail "You have already touched out" if !@journey[:finish].nil?
     @journey[:finish] = exit_station
     fare
-
     self
   end
-
 end

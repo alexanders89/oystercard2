@@ -4,45 +4,45 @@ class Oystercard
 
   attr_reader :balance, :entry_station, :exit_station, :journeys
 
-MAXIMUM_BALANCE = 90
-MINIMUM_BALANCE = 1
+  MAXIMUM_BALANCE = 90
+  MINIMUM_BALANCE = 1
 
-def initialize(balance=0)
-  @balance = balance
-  @journeys = []
-end
+  def initialize(balance = 0)
+    @balance = balance
+    @journeys = []
+  end
 
-def in_journey
-  @journey ||= Journey.new
-end
+  def in_journey
+    @journey ||= Journey.new
+  end
 
- def top_up(amount)
+  def top_up(amount)
     raise "Maximum balance of #{MAXIMUM_BALANCE} exceeded" if @balance + amount > MAXIMUM_BALANCE
     @balance += amount
   end
 
- def touch_in(entry_station)
-  fail "Balance too low : Top up Please" if @balance < MINIMUM_BALANCE
-  in_journey
-  @journey.start(entry_station)
+  def touch_in(entry_station)
+    rasie 'Balance too low : Top up Please' if @balance < MINIMUM_BALANCE
+    in_journey
+    p @journey.start(entry_station)
   end
 
- def touch_out(exit_station)
-   in_journey
-   @journey.finish(exit_station)
-   @journeys << @journey
-   @journey = nil
-    #deduct(MINIMUM_BALANCE)
+  def touch_out(exit_station)
+    in_journey
+    p @journey.finish(exit_station)
+    @journeys << @journey
+    @journey = nil
   end
 
- def completed_journeys
-    @journeys << {:entry_station => @entry_station, :exit_station => @exit_station}
-  end
+  private
 
- private
-
- def deduct(amount)
+  def deduct(amount)
     @balance -= amount
   end
-
 end
+
+p card = Oystercard.new
+p card.top_up(10)
+p card.touch_in(:A)
+p card.touch_out(:B)
+p card
