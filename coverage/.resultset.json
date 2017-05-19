@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/alexsatur/Desktop/oystercard2/spec/feature_spec.rb": [
+      "/Users/marioribeiro/Dropbox/Code/training/makers-academy/week2/oyster_card_with_alex_satur/spec/feature_spec.rb": [
         null,
         null,
         null,
@@ -11,7 +11,7 @@
         null,
         null
       ],
-      "/Users/alexsatur/Desktop/oystercard2/spec/journey_spec.rb": [
+      "/Users/marioribeiro/Dropbox/Code/training/makers-academy/week2/oyster_card_with_alex_satur/spec/journey_spec.rb": [
         1,
         null,
         1,
@@ -34,7 +34,7 @@
         null,
         null
       ],
-      "/Users/alexsatur/Desktop/oystercard2/lib/journey.rb": [
+      "/Users/marioribeiro/Dropbox/Code/training/makers-academy/week2/oyster_card_with_alex_satur/lib/journey.rb": [
         1,
         1,
         1,
@@ -67,7 +67,7 @@
         null,
         null
       ],
-      "/Users/alexsatur/Desktop/oystercard2/spec/oystercard_spec.rb": [
+      "/Users/marioribeiro/Dropbox/Code/training/makers-academy/week2/oyster_card_with_alex_satur/spec/oystercard_spec.rb": [
         1,
         null,
         1,
@@ -117,7 +117,7 @@
         null,
         null
       ],
-      "/Users/alexsatur/Desktop/oystercard2/lib/oystercard.rb": [
+      "/Users/marioribeiro/Dropbox/Code/training/makers-academy/week2/oyster_card_with_alex_satur/lib/oystercard.rb": [
         1,
         null,
         1,
@@ -162,7 +162,7 @@
         null,
         null
       ],
-      "/Users/alexsatur/Desktop/oystercard2/spec/station_spec.rb": [
+      "/Users/marioribeiro/Dropbox/Code/training/makers-academy/week2/oyster_card_with_alex_satur/spec/station_spec.rb": [
         1,
         null,
         1,
@@ -176,7 +176,7 @@
         null,
         null
       ],
-      "/Users/alexsatur/Desktop/oystercard2/lib/station.rb": [
+      "/Users/marioribeiro/Dropbox/Code/training/makers-academy/week2/oyster_card_with_alex_satur/lib/station.rb": [
         1,
         1,
         null,
@@ -187,6 +187,10 @@
         null
       ]
     },
+<<<<<<< HEAD
     "timestamp": 1495199718
+=======
+    "timestamp": 1495193955
+>>>>>>> d3eed815935eef5a98c709152061712b52837e22
   }
 }
