@@ -25,6 +25,7 @@ class Journey
     #fail "You have already touched out" if !@journey[:finish].nil?
     @journey[:finish] = exit_station
     fare
+
     self
   end
 
